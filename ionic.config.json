@@ -1,0 +1,7 @@
+{
+  "name": "redaproject",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
