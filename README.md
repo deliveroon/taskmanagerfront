@@ -8,9 +8,9 @@ Ionic est un framework de développement cross-platform web et mobile. On peut d
 
 ## Prérequis
 
-Installation de node JS
-Installation de angular et ionic framework
-Lancer le service backend au préalable
+### Installation de node JS
+### Installation de angular et ionic framework
+### Lancer le service backend au préalable
 
 ## Récupération du code
 
