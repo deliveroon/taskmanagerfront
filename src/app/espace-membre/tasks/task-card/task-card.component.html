@@ -1,0 +1,66 @@
+<ion-card *ngIf="editMode === false" [ngClass]="{'green': task.priorite === 'low', 'blue': task.priorite === 'medium','orange': task.priorite === 'high', 'red': task.priorite === 'critical'}">
+  <ion-card-header>
+    <ion-card-title>{{task.title}}</ion-card-title>
+    <ion-card-subtitle>{{task.user.username}}</ion-card-subtitle>    
+  </ion-card-header>
+  <ion-card-content>
+      {{task.description}}
+  </ion-card-content>
+  <ion-item>
+    <ion-buttons slot="start">
+        <p *ngIf="task.status === 'todo'" style="color: red">TO DO</p>
+        <p *ngIf="task.status === 'inprogress'" style="color: orange">IN PROGRESS</p>
+        <p *ngIf="task.status === 'finished'" style="color: green">FINISHED</p>
+     </ion-buttons>
+      <ion-buttons slot="end">
+          <ion-button  (click)="update()">
+              <ion-icon color="warning" name="create-outline"></ion-icon>
+          </ion-button>
+          <ion-button  (click)="delete()">
+              <ion-icon color="danger" name="trash-outline"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-item>
+</ion-card>
+
+<ion-card *ngIf="editMode === true">
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <ion-card-header>
+          <ion-card-title>Modifier tâche</ion-card-title>
+          <ion-item>
+              <ion-label>Utilisateur</ion-label>
+                  <ion-select okText="Valider" cancelText="Retour" id="user-input" formControlName="user">
+                      <ion-select-option *ngFor="let user of users" value="{{user.id}}">{{user.username}}</ion-select-option>
+                  </ion-select>
+          </ion-item>
+          <ion-item>
+              <ion-label position="floating">Titre</ion-label>
+              <ion-input id="title-input" formControlName="title"></ion-input>
+          </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-item>
+              <ion-label position="floating">Description</ion-label>
+              <ion-input id="description-input" formControlName="description"></ion-input>
+          </ion-item>  
+          <ion-item>
+            <ion-label>Status</ion-label>
+                <ion-select okText="Valider" cancelText="Retour" id="status-input" formControlName="status">
+                    <ion-select-option value="todo">To Do</ion-select-option>
+                    <ion-select-option value="inprogress">In Progress</ion-select-option>
+                    <ion-select-option value="finished">Finished</ion-select-option>
+                </ion-select>
+          </ion-item> 
+          <ion-item>
+            <ion-label>Priorité</ion-label>
+                <ion-select okText="Valider" cancelText="Retour" id="priorite-input" formControlName="priorite">
+                    <ion-select-option value="low">Basse</ion-select-option>
+                    <ion-select-option value="medium">Moyenne</ion-select-option>
+                    <ion-select-option value="high">Haute</ion-select-option>
+                    <ion-select-option value="critical">Critique</ion-select-option>
+                </ion-select>
+        </ion-item>
+      </ion-card-content>
+      <ion-button [disabled]="!taskForm.valid" type="submit" shape="round">Modifier</ion-button>
+  </form>
+</ion-card>

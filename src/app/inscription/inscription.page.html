@@ -1,0 +1,16 @@
+<ion-header >
+  <ion-toolbar color="light">
+    <ion-buttons>
+      <ion-button (click)="dismiss()">
+        <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="wrapper">
+    <app-stepper [(stepNumber)]="stepNumber"></app-stepper>
+  </div>      
+</ion-content>
+

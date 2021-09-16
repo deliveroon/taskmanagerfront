@@ -1,0 +1,19 @@
+<app-username [(username)]="inscriptionForm.username" [(stepValid)]="stepsValid[0]" *ngIf="stepNumber === 1"></app-username>
+<app-birthdate [(birthDate)]="inscriptionForm.birthDate" [(stepValid)]="stepsValid[1]" *ngIf="stepNumber === 2"></app-birthdate>
+<app-password [(password)]="inscriptionForm.password" [(stepValid)]="stepsValid[2]" *ngIf="stepNumber === 3"></app-password>
+<app-email [(email)]="inscriptionForm.email" [(stepValid)]="stepsValid[3]" *ngIf="stepNumber === 4"></app-email>
+<app-emailcode [(emailCode)]="inscriptionForm.emailCode" [(stepValid)]="stepsValid[4]" *ngIf="stepNumber === 5"></app-emailcode>
+
+
+
+<div *ngIf="stepNumber !== 5" id ="inscription-button">
+  <ion-button [disabled]="!stepsValid[stepNumber-1]" shape="round" (click)="next()">
+    Continuer
+  </ion-button>
+</div>
+
+<div *ngIf="stepNumber === 5" id ="inscription-button">
+  <ion-button [disabled]="!stepsValid[4]" shape="round" (click)="next()">
+    S'inscrire
+  </ion-button>
+</div>

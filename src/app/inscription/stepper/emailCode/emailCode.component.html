@@ -1,0 +1,23 @@
+<form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+  <div id="inscription-box">
+
+    <div id="inscription-title">
+      <p>Saisir le code reçu par email</p>
+    </div>
+    
+    <div id="inscription-form">
+      
+      <ion-item>
+        <ion-label id="code-label" position="stacked">CODE</ion-label>
+        <ion-input id="code-input" type="number" formControlName="emailcode"></ion-input>
+      </ion-item>
+
+    </div>
+
+    <div id="code-undertext">
+      <span id="resend-code"><a href="">Renvoyer un code</a></span>    
+    </div>
+        
+  </div>
+ 
+</form>

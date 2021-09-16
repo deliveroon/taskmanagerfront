@@ -1,0 +1,26 @@
+<form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+  <div id="inscription-box">
+
+    <div id="inscription-title">
+      <p>Quand êtes-vous née ? </p>
+    </div>
+    
+    <div id="inscription-form">
+      
+      <ion-item>
+        <ion-label position="stacked">Date de naissance</ion-label>
+        <ion-datetime
+        [max]="dateMax" 
+        formControlName="birthDate" 
+        (ionChange)="setDate($event)"
+        displayFormat="DD/MM/YYYY"
+        done-text="Valider"
+        cancel-text="Retour">
+      </ion-datetime>
+      </ion-item>
+      
+    </div>
+    
+  </div>
+ 
+</form>

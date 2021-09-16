@@ -1,0 +1,26 @@
+#inscription-box {
+    padding-top: 10%;
+    #inscription-title {
+        color: black;
+        font-weight: 400;
+        font-size: 1.15rem;
+    }
+    #inscription-form {
+        color: black;
+        margin-left: 10%;
+        width: 80%;
+        ion-item{
+            --background: #ffffff;
+            --color: #626a79;
+            font-size: 0.8rem;
+            ion-datetime {
+                --color: black;
+                font-weight: 100;
+                font-size: 1rem;
+            }
+        }
+        ion-input{
+            --color: black;
+        }
+    }
+}

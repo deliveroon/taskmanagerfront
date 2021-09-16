@@ -1,6 +1,6 @@
 {
 	"appId": "io.ionic.starter",
-	"appName": "redaproject",
+	"appName": "taskManager",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

@@ -1,0 +1,28 @@
+<form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+  <div id="inscription-box">
+
+    <div id="inscription-title">
+      <p>Saisir votre Email</p>
+    </div>
+    
+    <div id="inscription-form">
+      
+        <ion-item>
+          <ion-label id="user-label" position="stacked">Email</ion-label>
+          <ion-input  id="user-input" type="text" formControlName="email"></ion-input>
+        </ion-item>
+      
+    </div>
+
+    <div id ="usernameErrors">
+      <div class="red" *ngIf="emailExist">
+        Cette addresse email est déjà utilisé
+      </div>   
+      <div class="red" *ngIf="inscriptionForm.hasError('emailFormat', 'email')">
+        Veuillez saisir une adresse mail correct
+      </div>
+    </div>
+        
+  </div>
+ 
+</form>

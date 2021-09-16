@@ -1,0 +1,31 @@
+<form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()">
+  <div id="inscription-box">
+
+    <div id="inscription-title">
+      <p>Choisir un nom d'utilisateur</p>
+    </div>
+    
+    <div id="inscription-form">
+      
+        <ion-item>
+          <ion-label id="user-label" position="stacked">Nom d'utilisateur</ion-label>
+          <ion-input  id="user-input" type="text" formControlName="username"></ion-input>
+        </ion-item>
+      
+    </div>
+
+    <div id ="usernameErrors">
+      <div class="red" *ngIf="userExist">
+        Ce nom d'utilisateur est déjà utilisé
+      </div>   
+      <div class="red" *ngIf="inscriptionForm.hasError('usernameSpecial', 'username')">
+        Seulement des caracteres alphanumérique
+      </div>
+      <div class="red" *ngIf="inscriptionForm.hasError('usernameLength', 'username')">
+        Entre 8 et 20 caracteres
+      </div>
+    </div>
+        
+  </div>
+ 
+</form>

@@ -1,0 +1,48 @@
+<ion-header >
+  <ion-toolbar color="light">
+    <ion-buttons>
+      <ion-button (click)="dismiss()">
+        <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="wrapper">
+    <form [formGroup]="connexionForm" (ngSubmit)="onSubmit()">
+      <div id="connexion-box">
+
+        <div id="connexion-title">
+          <p>Connexion</p>
+        </div>
+        
+        <div id="connexion-form">
+          
+            <ion-item>
+              <ion-label id="user-label" position="stacked">Nom d'utilisateur</ion-label>
+              <ion-input autocomplete="username" id="user-input" formControlName="username"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label id="password-label" position="stacked">Mot de passe</ion-label>
+              <ion-input autocomplete="current-password" id="password-input" id="password" type="password" formControlName="password"></ion-input>
+            </ion-item>
+          
+        </div>
+
+        <div id="connexion-undertext">
+          <span id="connexion-response">
+            <p [hidden]="!connexionError" id="connexion-error-message">Veuillez vérifier vos informations de connexion et réessayer</p>
+          </span>
+          <span id="reset-password"><a href="">Mot de passe oublié ?</a></span>    
+        </div>
+        
+      </div>
+
+      <div id="connexion-button">
+        <ion-button (click)="connect()" [disabled]="!connexionForm.valid" shape="round">Connexion</ion-button>
+      </div>
+    </form>
+  </div>      
+</ion-content>
+

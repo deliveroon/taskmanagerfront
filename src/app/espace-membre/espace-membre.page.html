@@ -1,0 +1,22 @@
+<ion-header >
+  <ion-toolbar color="light">
+    <ion-buttons slot='end'>
+      <ion-button  (click)="logout()">
+        <ion-icon color="primary" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="wrapper"> 
+    <ion-slides pager="false" [options]="slideOpts">
+      <ion-slide>
+        <app-users [(users)]="users"></app-users>
+      </ion-slide>
+      <ion-slide>
+        <app-tasks [(tasks)]="tasks" [(users)]="users" (refreshOutput)="refreshData($event)"></app-tasks>
+      </ion-slide>
+    </ion-slides>
+  </div>  
+</ion-content>
